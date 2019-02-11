@@ -1,20 +1,20 @@
 tPrice = 0;
 
 function springMagicPrice() {
-    var sM = document.getElementById("sM");
-    var sMb = document.getElementById("sMb");
-    var quantitysM = document.getElementById("quantitysM");
+    var springMagic = document.getElementById("sM");
+    var springMagicBasePrice = document.getElementById("sMb");
+    var springMagicQuatity = document.getElementById("quantitysM");
 
-    var isValidInput = quantitysM.value !== ''
-        && parseInt(quantitysM.value) > 0
-        && Number.isInteger(+quantitysM.value);
+    var isValidInput = springMagicQuatity.value !== ''
+        && parseInt(springMagicQuatity.value) > 0
+        && Number.isInteger(+springMagicQuatity.value);
         
     if (isValidInput) {
-        sM.value = sMb.value * quantitysM.value;
+        springMagic.value = springMagicBasePrice.value * springMagicQuatity.value;
     }
     else {
         alert("That is not a valid amount number.");
-        quantitysM.value = 1;
+        springMagicQuatity.value = 1;
     }
 }
 
