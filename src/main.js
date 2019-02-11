@@ -5,11 +5,14 @@ function springMagicPrice() {
     var sMb = document.getElementById("sMb");
     var quantitysM = document.getElementById("quantitysM");
 
-    if (quantitysM.value == '') {}
-    else if (parseInt(quantitysM.value) > 0 && Number.isInteger(+quantitysM.value)) {
+    var isValidInput = quantitysM.value !== ''
+        && parseInt(quantitysM.value) > 0
+        && Number.isInteger(+quantitysM.value);
+        
+    if (isValidInput) {
         sM.value = sMb.value * quantitysM.value;
     }
-    else  {
+    else {
         alert("That is not a valid amount number.");
         quantitysM.value = 1;
     }
@@ -32,25 +35,26 @@ function sMBill() {
         alert("Sorry, we do not have desired amount of Spring Magic. Total amount available is: " + sMTotal.value);
     }
 
-    else { sMTotal.value -= quantitysM.value;
-           tPrice += parseFloat(sM.value);
-           sessionStorage.setItem('springMagic', sM.value);
-           sessionStorage.setItem('springMagicqt', quantitysM.value);
-           sessionStorage.setItem('springMagictotal', sMTotal.value);
-           alert("(" + quantitysM.value + ") items of Spring Magic has been added to your cart. To checkout, please click on cart icon on upper right corner.");
-    } 
+    else {
+    sMTotal.value -= quantitysM.value;
+        tPrice += parseFloat(sM.value);
+        sessionStorage.setItem('springMagic', sM.value);
+        sessionStorage.setItem('springMagicqt', quantitysM.value);
+        sessionStorage.setItem('springMagictotal', sMTotal.value);
+        alert("(" + quantitysM.value + ") items of Spring Magic has been added to your cart. To checkout, please click on cart icon on upper right corner.");
+    }
 }
 
 function summerFreshPrice() {
     var sF = document.getElementById("sF");
     var sFb = document.getElementById("sFb");
     var quantitysF = document.getElementById("quantitysF");
-    
-    if (quantitysF.value == '') {}
+
+    if (quantitysF.value == '') { }
     else if (parseInt(quantitysF.value) > 0 && Number.isInteger(+quantitysF.value)) {
         sF.value = sFb.value * quantitysF.value;
     }
-    else  {
+    else {
         alert("That is not a valid amount number.");
         quantitysF.value = 1;
     }
@@ -71,14 +75,15 @@ function sFBill() {
     else if (parseInt(quantitysF.value) > parseInt(sFTotal.value)) {
         quantitysF.value = null;
         alert("Sorry, we do not have desired amount of Summer Fresh. Total amount available is: " + sFTotal.value);
-    } 
+    }
 
-    else { sFTotal.value -= quantitysF.value;
-           tPrice += parseFloat(sF.value);
-           sessionStorage.setItem('summerFresh', sF.value);
-           sessionStorage.setItem('summerFreshqt', quantitysF.value);
-           sessionStorage.setItem('summerFreshtotal', sFTotal.value);
-           alert("(" + quantitysF.value + ") items of Summer Fresh has been added to your cart. To checkout, please click on cart icon on upper right corner.");
+    else {
+    sFTotal.value -= quantitysF.value;
+        tPrice += parseFloat(sF.value);
+        sessionStorage.setItem('summerFresh', sF.value);
+        sessionStorage.setItem('summerFreshqt', quantitysF.value);
+        sessionStorage.setItem('summerFreshtotal', sFTotal.value);
+        alert("(" + quantitysF.value + ") items of Summer Fresh has been added to your cart. To checkout, please click on cart icon on upper right corner.");
     }
 }
 
@@ -87,11 +92,11 @@ function easterFlowersPrice() {
     var eFb = document.getElementById("eFb");
     var quantityeF = document.getElementById("quantityeF");
 
-    if (quantityeF.value == '') {}
+    if (quantityeF.value == '') { }
     else if (parseInt(quantityeF.value) > 0 && Number.isInteger(+quantityeF.value)) {
         eF.value = eFb.value * quantityeF.value;
     }
-    else  {
+    else {
         alert("That is not a valid amount number.");
         quantityeF.value = 1;
     }
@@ -112,14 +117,15 @@ function eFBill() {
     else if (parseInt(quantityeF.value) > parseInt(eFTotal.value)) {
         quantityeF.value = null;
         alert("Sorry, we do not have desired amount of Easter Flowers. Total amount available is: " + eFTotal.value);
-    } 
+    }
 
-    else { eFTotal.value -= quantityeF.value;
-           tPrice += parseFloat(eF.value);
-           sessionStorage.setItem('easterFlowers', eF.value);
-           sessionStorage.setItem('easterFlowersqt', quantityeF.value);
-           sessionStorage.setItem('easterFlowerstotal', eFTotal.value);
-           alert("(" + quantityeF.value + ") items of Easter Flowers has been added to your cart. To checkout, please click on cart icon on upper right corner.");
+    else {
+    eFTotal.value -= quantityeF.value;
+        tPrice += parseFloat(eF.value);
+        sessionStorage.setItem('easterFlowers', eF.value);
+        sessionStorage.setItem('easterFlowersqt', quantityeF.value);
+        sessionStorage.setItem('easterFlowerstotal', eFTotal.value);
+        alert("(" + quantityeF.value + ") items of Easter Flowers has been added to your cart. To checkout, please click on cart icon on upper right corner.");
     }
 }
 
@@ -128,11 +134,11 @@ function toMumPrice() {
     var tMb = document.getElementById("tMb");
     var quantitytM = document.getElementById("quantitytM");
 
-    if (quantitytM.value == '') {}
+    if (quantitytM.value == '') { }
     else if (parseInt(quantitytM.value) > 0 && Number.isInteger(+quantitytM.value)) {
         tM.value = tMb.value * quantitytM.value;
     }
-    else  {
+    else {
         alert("That is not a valid amount number.");
         quantitytM.value = 1;
     }
@@ -153,14 +159,15 @@ function tMBill() {
     else if (parseInt(quantitytM.value) > parseInt(tMTotal.value)) {
         quantitytM.value = null;
         alert("Sorry, we do not have desired amount of To Mum With Love. Total amount available is: " + tMTotal.value);
-    } 
+    }
 
-    else { tMTotal.value -= quantitytM.value;
-           tPrice += parseFloat(tM.value);
-           sessionStorage.setItem('toMum', tM.value);
-           sessionStorage.setItem('toMumqt', quantitytM.value);
-           sessionStorage.setItem('toMumtotal', tMTotal.value);
-           alert("(" + quantitytM.value + ") items of To Mum With Love has been added to your cart. To checkout, please click on cart icon on upper right corner.");
+    else {
+    tMTotal.value -= quantitytM.value;
+        tPrice += parseFloat(tM.value);
+        sessionStorage.setItem('toMum', tM.value);
+        sessionStorage.setItem('toMumqt', quantitytM.value);
+        sessionStorage.setItem('toMumtotal', tMTotal.value);
+        alert("(" + quantitytM.value + ") items of To Mum With Love has been added to your cart. To checkout, please click on cart icon on upper right corner.");
     }
 }
 
@@ -169,11 +176,11 @@ function pinkPerfectionPrice() {
     var pPb = document.getElementById("pPb")
     var quantitypP = document.getElementById("quantitypP");
 
-    if (quantitypP.value == '') {}
+    if (quantitypP.value == '') { }
     else if (parseInt(quantitypP.value) > 0 && Number.isInteger(+quantitypP.value)) {
         pP.value = pPb.value * quantitypP.value;
     }
-    else  {
+    else {
         alert("That is not a valid amount number.");
         quantitypP.value = 1;
     }
@@ -194,19 +201,20 @@ function pPBill() {
     else if (parseInt(quantitypP.value) > parseInt(pPTotal.value)) {
         quantitypP.value = null;
         alert("Sorry, we do not have desired amount of Pink Perfection. Total amount available is: " + pPTotal.value);
-    } 
+    }
 
-    else { pPTotal.value -= quantitypP.value;
-           tPrice += parseFloat(pP.value);
-           sessionStorage.setItem('pinkPerfection', pP.value);
-           sessionStorage.setItem('pinkPerfectionqt', quantitypP.value);
-           sessionStorage.setItem('pinkPerfectiontotal', pPTotal.value);
-           alert("(" + quantitypP.value + ") items of Pink Perfection has been added to your cart. To checkout, please click on cart icon on upper right corner.");
+    else {
+    pPTotal.value -= quantitypP.value;
+        tPrice += parseFloat(pP.value);
+        sessionStorage.setItem('pinkPerfection', pP.value);
+        sessionStorage.setItem('pinkPerfectionqt', quantitypP.value);
+        sessionStorage.setItem('pinkPerfectiontotal', pPTotal.value);
+        alert("(" + quantitypP.value + ") items of Pink Perfection has been added to your cart. To checkout, please click on cart icon on upper right corner.");
     }
 }
 
 function totalPrice() {
-    
+
     if (tPrice != 0) {
         sessionStorage.setItem("finalprice", tPrice);
         location.replace("bill.html")
@@ -230,7 +238,7 @@ function totalPrice() {
 }
 
 function whichQt() {
-    if(sessionStorage.getItem('springMagictotal') == null ) {
+    if (sessionStorage.getItem('springMagictotal') == null) {
         sMTotal = document.getElementById("sMTotal").value;
     }
     else {
@@ -239,7 +247,7 @@ function whichQt() {
 }
 
 function whichQt1() {
-    if(sessionStorage.getItem('summerFreshtotal') == null ) {
+    if (sessionStorage.getItem('summerFreshtotal') == null) {
         sFTotal = document.getElementById("sFTotal").value;
     }
     else {
@@ -248,7 +256,7 @@ function whichQt1() {
 }
 
 function whichQt2() {
-    if(sessionStorage.getItem('easterFlowerstotal') == null ) {
+    if (sessionStorage.getItem('easterFlowerstotal') == null) {
         eFTotal = document.getElementById("eFTotal").value;
     }
     else {
@@ -257,7 +265,7 @@ function whichQt2() {
 }
 
 function whichQt3() {
-    if(sessionStorage.getItem('toMumtotal') == null ) {
+    if (sessionStorage.getItem('toMumtotal') == null) {
         tMTotal = document.getElementById("tMTotal").value;
     }
     else {
@@ -266,7 +274,7 @@ function whichQt3() {
 }
 
 function whichQt4() {
-    if(sessionStorage.getItem('pinkPerfectiontotal') == null ) {
+    if (sessionStorage.getItem('pinkPerfectiontotal') == null) {
         pPTotal = document.getElementById("pPTotal").value;
     }
     else {
